@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity(name = "client")
@@ -34,6 +36,9 @@ public class Client {
 	@Column(name="telephone")
 	private int telephone;
 
+	@ManyToOne
+	@JoinColumn(name="id_conseiller")
+	private int conseillerID;
 	
 	/**
 	 * ctor vide

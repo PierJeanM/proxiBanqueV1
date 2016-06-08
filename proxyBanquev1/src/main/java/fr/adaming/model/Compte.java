@@ -35,7 +35,6 @@ public abstract class Compte {
 	 */
 	public Compte(int idCompte, double solde, Date dateCréation) {
 		super();
-		this.idCompte = idCompte;
 		this.solde = solde;
 		this.dateCreation = dateCréation;
 	}
@@ -49,14 +48,6 @@ public abstract class Compte {
 		super();
 		this.solde = solde;
 		this.dateCreation = dateCréation;
-	}
-
-	public int getIdCompte() {
-		return idCompte;
-	}
-
-	public void setIdCompte(int idCompte) {
-		this.idCompte = idCompte;
 	}
 
 	public double getSolde() {
