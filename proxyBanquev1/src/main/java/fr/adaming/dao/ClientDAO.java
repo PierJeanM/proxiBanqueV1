@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.model.Client;
+import fr.adaming.model.Conseiller;
 
 /**
  * Implémentation DAO pour la classe Client
@@ -73,5 +74,9 @@ public class ClientDAO implements IDAO<Client> {
 		Session session = sessionFactory.openSession();
 		
 		return session.createQuery("FROM Client").list();
+	}
+	
+	public List<Client> getClientsOf(Conseiller c) {
+		
 	}
 }
