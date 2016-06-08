@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+
+</h:head>
+<h:body>
+
+	<f:view>
+		<h:form>
+			<h1>
+				<h:outputText value="Create/Edit" />
+			</h1>
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Id:" for="id" />
+				<h:inputText id="id" value="#{clientMB.client.id}" title="Id" />
+
+				<h:outputLabel value="Nom:" for="nom" />
+				<h:inputText id="nom" value="#{clientMB.client.nom}" title="Nom" />
+
+				<h:outputLabel value="Prenom:" for="prenom" />
+				<h:inputText id="prenom" value="#{clientMB.client.prenom}"
+					title="Prenom" />
+
+				<h:outputLabel value="Adresse:" for="adresse" />
+				<h:inputText id="adresse" value="#{clientMB.client.adresse}"
+					title="Adresse" />
+
+				<h:outputLabel value="Ville:" for="ville" />
+				<h:inputText id="ville" value="#{clientMB.client.ville}"
+					title="Ville" />
+
+				<h:outputLabel value="Code Postal:" for="codePostal" />
+				<h:inputText id="codePostal" value="#{clientMB.client.codePostal}"
+					title="CodePostal" />
+
+				<h:outputLabel value="Telephone:" for="telephone" />
+				<h:inputText id="telephone" value="#{clientMB.client.telephone}"
+					title="Telephone" />
+
+
+			</h:panelGrid>
+		</h:form>
+	</f:view>
+
+
+
+
+</h:body>
+</html>

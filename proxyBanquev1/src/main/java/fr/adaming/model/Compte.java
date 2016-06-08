@@ -3,13 +3,14 @@ package fr.adaming.model;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
 
 /**
  * 
  * @author INTI-0247
  *
  */
-
+@MappedSuperclass
 public abstract class Compte {
 
 	

@@ -10,7 +10,6 @@ import javax.persistence.Table;
 
 @Entity(name="compteCourant")
 @Table(name="comptes_courants")
-@MappedSuperclass
 public class CompteCourant extends Compte{
 
 	@Id
