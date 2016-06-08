@@ -75,8 +75,4 @@ public class ClientDAO implements IDAO<Client> {
 		
 		return session.createQuery("FROM Client").list();
 	}
-	
-	public List<Client> getClientsOf(Conseiller c) {
-		
-	}
 }
