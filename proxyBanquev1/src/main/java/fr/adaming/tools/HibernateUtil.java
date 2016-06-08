@@ -1,10 +1,13 @@
 package fr.adaming.tools;
 
-import org.hibernate.cfg.AnnotationConfiguration;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.service.ServiceRegistry;
 import org.hibernate.SessionFactory;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 /**
- * Hibernate Utility class with a convenient method to get Session Factory object.
+ * Classe utilitaire Hibernate pour générer une
+ * sessionFactory.
  *
  * @author INTI-0232
  */
@@ -14,12 +17,15 @@ public class HibernateUtil {
 	
 	static {
 		try {
-            // Create the SessionFactory from standard (hibernate.cfg.xml) 
-			// config file.
-			sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
+            // Cree la SessionFactory à partir du fichier de config (hibernate.cfg.xml)
+			Configuration configuration = new Configuration();
+		    configuration.configure();
+		    ServiceRegistry  serviceRegistry = new StandardServiceRegistryBuilder().applySettings(
+		            configuration.getProperties()).build();
+		    sessionFactory = configuration.buildSessionFactory(serviceRegistry);
 		} catch (Throwable ex) {
-			// Log the exception. 
-			System.err.println("Initial SessionFactory creation failed." + ex);
+			// Gestion de l'exception
+			System.err.println("Erreur lors de la création de la SessionFactory." + ex);
 			throw new ExceptionInInitializerError(ex);
 		}
 	}
