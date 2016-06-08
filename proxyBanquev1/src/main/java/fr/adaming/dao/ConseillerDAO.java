@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import fr.adaming.model.Client;
 import fr.adaming.model.Conseiller;
+import fr.adaming.tools.HibernateUtil;
 
 public class ConseillerDAO implements IDAO<Conseiller> {
 	
