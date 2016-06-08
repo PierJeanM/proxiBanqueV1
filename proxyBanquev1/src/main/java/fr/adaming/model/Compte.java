@@ -14,14 +14,10 @@ import javax.persistence.Table;
  * @author INTI-0247
  *
  */
-@Entity(name="compte")
-@Table(name="comptes")
+
 public abstract class Compte {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id_compte")
-	private int idCompte;
+	
 	@Column(name="solde")
 	private double solde;
 	@Column(name="date_creation")
