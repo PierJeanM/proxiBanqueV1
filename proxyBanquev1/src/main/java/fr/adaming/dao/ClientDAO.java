@@ -34,7 +34,7 @@ public class ClientDAO implements IDAO<Client> {
 		this.sessionFactory = sessionFactory;
 	}
 	
-	@Override
+	
 	public void add(Client c) {
 		Session session = sessionFactory.openSession();
 		Transaction t  = session.beginTransaction();
@@ -42,24 +42,24 @@ public class ClientDAO implements IDAO<Client> {
 		t.commit();
 	}
 
-	@Override
+	
 	public void update(Client c) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+	
 	public void delete(Client c) {
 		Session session = sessionFactory.openSession();
 		Transaction t = session.beginTransaction();
 		
-		Client c = (Client) session.load(Client.class, c.getId());
+		Client clt = (Client) session.load(Client.class, c.getId());
 		
-		session.delete(c);
+		session.delete(clt);
 		t.commit();
 	}
 
-	@Override
+
 	public Client getById(int id) {
 		Session session = sessionFactory.openSession();
 		Query query = session.createQuery("FROM Client c WHERE c.id = :clientID");
@@ -68,7 +68,6 @@ public class ClientDAO implements IDAO<Client> {
 		return (Client) query.uniqueResult();
 	}
 
-	@Override
 	@SuppressWarnings("unchecked")
 	public List<Client> getAll() {
 		Session session = sessionFactory.openSession();

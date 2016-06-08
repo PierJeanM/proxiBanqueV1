@@ -20,7 +20,7 @@ public class CarteDAO implements IDAO<Carte> {
 		this.sessionFactory = sessionFactory;
 	}
 	
-	@Override
+
 	public void add(Carte c) {
 		Session session = sessionFactory.openSession();
 		Transaction t  = session.beginTransaction();
@@ -28,13 +28,13 @@ public class CarteDAO implements IDAO<Carte> {
 		t.commit();
 	}
 
-	@Override
+
 	public void update(Carte c) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+
 	public void delete(Carte c) {
 		Session session = sessionFactory.openSession();
 		Transaction t = session.beginTransaction();
@@ -45,7 +45,7 @@ public class CarteDAO implements IDAO<Carte> {
 		t.commit();
 	}
 
-	@Override
+
 	public Carte getById(int id) {
 		Session session = sessionFactory.openSession();
 		Query query = session.createQuery("FROM Carte c WHERE c.id = :carteID");
@@ -54,7 +54,7 @@ public class CarteDAO implements IDAO<Carte> {
 		return (Carte) query.uniqueResult();
 	}
 
-	@Override
+
 	@SuppressWarnings("unchecked")
 	public List<Carte> getAll() {
 		Session session = sessionFactory.openSession();
