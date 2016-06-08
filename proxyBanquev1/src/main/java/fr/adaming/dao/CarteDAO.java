@@ -9,16 +9,11 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import fr.adaming.model.Carte;
-import fr.adaming.tools.HibernateUtil;
 
 public class CarteDAO implements IDAO<Carte> {
 	
 	@Autowired // injection automatique
 	private SessionFactory sessionFactory;
-	
-	public CarteDAO() {
-		sessionFactory = HibernateUtil.getSessionFactory();
-	}
 	
 	// Setter pour l'injection
 	public void setSessionFactory(SessionFactory sessionFactory) {

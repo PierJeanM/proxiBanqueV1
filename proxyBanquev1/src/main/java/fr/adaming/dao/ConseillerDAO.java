@@ -9,16 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import fr.adaming.model.Client;
 import fr.adaming.model.Conseiller;
-import fr.adaming.tools.HibernateUtil;
 
 public class ConseillerDAO implements IDAO<Conseiller> {
 	
 	@Autowired // injection automatique
 	private SessionFactory sessionFactory;
-	
-	public ConseillerDAO() {
-		sessionFactory = HibernateUtil.getSessionFactory();
-	}
 
 	public void add(Conseiller c) {
 		// TODO Auto-generated method stub
