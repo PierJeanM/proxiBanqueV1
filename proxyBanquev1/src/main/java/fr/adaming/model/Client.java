@@ -145,7 +145,12 @@ public class Client {
 	public void setTelephone(int telephone) {
 		this.telephone = telephone;
 	}
-	
-	
 
+	public int getConseillerID() {
+		return conseillerID;
+	}
+
+	public void setConseillerID(int conseillerID) {
+		this.conseillerID = conseillerID;
+	}
 }

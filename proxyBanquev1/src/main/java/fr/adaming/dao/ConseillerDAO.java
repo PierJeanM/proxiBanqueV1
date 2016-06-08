@@ -46,6 +46,5 @@ public class ConseillerDAO implements IDAO<Conseiller> {
 		Query query = session.createQuery("FROM Client c WHERE c.conseillerID = :cID");
 		query.setParameter("cID", c.getId());
 		return query.list();
-		
 	}
 }
