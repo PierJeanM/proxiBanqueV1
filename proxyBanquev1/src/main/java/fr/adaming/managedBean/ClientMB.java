@@ -26,6 +26,7 @@ public class ClientMB implements Serializable{
 	@Autowired
 	private ClientService clientService;
 	
+	@Autowired
 	private Client client;
 	
 	public ClientMB() {
