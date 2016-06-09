@@ -3,6 +3,7 @@ package fr.adaming.service;
 import java.util.List;
 
 import fr.adaming.dao.ConseillerDAO;
+import fr.adaming.model.Client;
 import fr.adaming.model.Conseiller;
 
 public class ConseillerService implements IService<Conseiller>{
@@ -36,6 +37,12 @@ public class ConseillerService implements IService<Conseiller>{
 	public List<Conseiller> getAll() {
 		
 		return null;
+	}
+	
+	public List<Client> getClientsOf(Conseiller c){
+		
+		return conseillerDAO.getClientsOf(c);
+		
 	}
 
 }
