@@ -6,6 +6,40 @@
 
 <h:head></h:head> 
 <body> 
-	<a href="pages/ajouterClient.xhtml">Ajouter Client</a>
+	
+	 <f:view>
+
+            <h:form>
+                <h1><h:outputText value="List"/></h1>
+                <h:dataTable value="#{conseillerMB.getClientsOf()}" var="item">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Id"/>
+                        </f:facet>
+                        <h:outputText value="#{conseillerMB.conseiller.id}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Nom"/>
+                        </f:facet>
+                        <h:outputText value="#{conseillerMB.conseiller.nom}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Prenom"/>
+                        </f:facet>
+                        <h:outputText value="#{conseillerMB.conseiller.prenom}"/>
+                    </h:column>             
+               
+                </h:dataTable>               
+                         
+            </h:form>
+            
+            <a href="pages/ajouterClient.xhtml">Ajouter Client</a>
+             <input type="submit" value="Connection" name="Homepage" />
+            
+        </f:view>
+        
+        
 </body> 
 </html>
