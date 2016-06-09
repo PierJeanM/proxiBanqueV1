@@ -2,10 +2,12 @@ package fr.adaming.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -17,6 +19,7 @@ public class Client {
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	@Column(name="id_client")
 	private int id;
+
 
 	@Column(name="nom")
 	private String nom;
@@ -36,9 +39,9 @@ public class Client {
 	@Column(name="telephone")
 	private int telephone;
 
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="id_conseiller")
-	private int conseillerID;
+	private Conseiller conseiller;
 	
 	/**
 	 * ctor vide
@@ -145,12 +148,12 @@ public class Client {
 	public void setTelephone(int telephone) {
 		this.telephone = telephone;
 	}
-
-	public int getConseillerID() {
-		return conseillerID;
+	
+	public Conseiller getConseiller() {
+		return conseiller;
 	}
 
-	public void setConseillerID(int conseillerID) {
-		this.conseillerID = conseillerID;
+	public void setConseiller(Conseiller conseiller) {
+		this.conseiller = conseiller;
 	}
 }

@@ -58,7 +58,7 @@ public class ClientDAO implements IDAO<Client> {
 		query.setParameter("adresse", c.getAdresse());
 		query.setParameter("CP", c.getCodePostal());
 		query.setParameter("tel", c.getTelephone());
-		query.setParameter("conseiller", c.getConseillerID());
+		query.setParameter("conseiller", c.getConseiller());
 		query.setParameter("ville", c.getVille());
 		query.executeUpdate();
 		t.commit();

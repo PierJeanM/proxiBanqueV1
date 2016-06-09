@@ -4,9 +4,12 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity(name = "conseiller")
@@ -24,6 +27,7 @@ public class Conseiller {
 	@Column(name = "prenom")
 	private String prenom;
 
+	@OneToMany(fetch=FetchType.LAZY,mappedBy="id")
 	private List<Client> listClient;
 
 	/**
@@ -67,16 +71,18 @@ public class Conseiller {
 	 * 
 	 * GETTERS & SETTERS
 	 ************************/
+	
+
+	public String getNom() {
+		return nom;
+	}
+
 	public int getId() {
 		return id;
 	}
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getNom() {
-		return nom;
 	}
 
 	public void setNom(String nom) {
