@@ -43,7 +43,8 @@ public class ClientMB implements Serializable{
 	}
 
 
-	public void addClient(Client client){
+	public void addClient(){
+		System.out.println("********************\nMethode add mb");
 		clientService.add(client);
 	}
 	

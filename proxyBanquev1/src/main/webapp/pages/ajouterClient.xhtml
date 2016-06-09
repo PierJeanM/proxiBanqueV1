@@ -8,11 +8,9 @@
 
 </h:head>
 <h:body>
-	POPOPOPO
-
 		<h:form>
 			<h1>
-				<h:outputText value="Create/Edit" />
+				<h:outputText value="Ajout Client" />
 			</h1>
 			<h:panelGrid columns="2">
 				<h:outputLabel value="Id:" for="id" />
@@ -41,8 +39,8 @@
 				<h:inputText id="telephone" value="#{clientMB.client.telephone}"
 					title="Telephone" />
 
-
 			</h:panelGrid>
+			<h:commandButton actionListener="#{clientMB.addClient}" action="addedClient.xhtml" value="Ajouter" />
 		</h:form>
 
 
