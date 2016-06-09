@@ -29,8 +29,8 @@ public class ConseillerMB implements Serializable {
 		conseiller = new Conseiller();
 	}
 
-	public List<Client> getClientsOf(Conseiller c) {
-		return conseillerService.getClientsOf(c);
+	public List<Client> getClientsOf() {
+		return conseillerService.getClientsOf(conseiller);
 	}
 
 	
