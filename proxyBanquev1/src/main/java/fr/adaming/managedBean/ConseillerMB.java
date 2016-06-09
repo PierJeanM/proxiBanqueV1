@@ -3,7 +3,7 @@ package fr.adaming.managedBean;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.annotation.ManagedBean;
+import javax.faces.bean.ManagedBean;
 
 import org.springframework.beans.factory.annotation.Autowired;
 

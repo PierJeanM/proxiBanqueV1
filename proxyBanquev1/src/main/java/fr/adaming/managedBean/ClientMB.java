@@ -6,7 +6,6 @@ import javax.faces.bean.ManagedBean;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import fr.adaming.dao.ClientDAO;
 import fr.adaming.model.Client;
 import fr.adaming.service.ClientService;
 
