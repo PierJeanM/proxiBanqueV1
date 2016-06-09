@@ -4,8 +4,6 @@ import java.io.Serializable;
 
 import javax.faces.bean.ManagedBean;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import fr.adaming.model.Client;
 import fr.adaming.service.ClientService;
 
@@ -22,10 +20,10 @@ public class ClientMB implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	@Autowired
+	
 	private ClientService clientService;
 	
-	@Autowired
+	
 	private Client client;
 	
 	public ClientMB() {

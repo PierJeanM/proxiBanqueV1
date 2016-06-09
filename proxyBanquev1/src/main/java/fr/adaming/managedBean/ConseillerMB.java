@@ -5,8 +5,6 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import fr.adaming.model.Client;
 import fr.adaming.model.Conseiller;
 import fr.adaming.service.ConseillerService;
@@ -19,10 +17,10 @@ public class ConseillerMB implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Autowired
+	
 	private ConseillerService conseillerService;
 	
-	@Autowired
+	
 	private Conseiller conseiller;
 
 	public ConseillerMB() {
