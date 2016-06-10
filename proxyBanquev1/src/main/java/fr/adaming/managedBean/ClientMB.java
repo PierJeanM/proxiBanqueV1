@@ -3,9 +3,13 @@ import java.io.Serializable;
 
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import fr.adaming.model.Client;
-import fr.adaming.service.ClientService;
+import fr.adaming.service.IService;
 
 /**
  * Managed Bean du client
@@ -13,23 +17,19 @@ import fr.adaming.service.ClientService;
  *
  */
 @ManagedBean
+@SessionScoped
+@Component
 public class ClientMB implements Serializable{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
-	
-	private ClientService clientService;
-	
+	@Autowired
+	private IService<Client> clientService;
 	
 	private Client client;
 	
 	public ClientMB() {
-		clientService = new ClientService();
 		client = new Client();
-		// TODO Auto-generated constructor stub
 	}
 	
 	
@@ -44,12 +44,11 @@ public class ClientMB implements Serializable{
 
 
 	public void addClient(){
-		System.out.println("********************\nMethode add mb");
 		clientService.add(client);
 	}
-	
-	
-	
-	
-	
+
+
+	public void setClientService(IService<Client> clientService) {
+		this.clientService = clientService;
+	}
 }

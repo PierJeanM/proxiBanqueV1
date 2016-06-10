@@ -6,11 +6,15 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.model.Client;
 import fr.adaming.model.Conseiller;
 
-public class ConseillerDAO implements IDAO<Conseiller> {
+@Repository
+@Transactional
+public class ConseillerDAO{
 	
 	@Autowired // injection automatique
 	private SessionFactory sessionFactory;
@@ -35,15 +39,18 @@ public class ConseillerDAO implements IDAO<Conseiller> {
 		return null;
 	}
 
+	@Transactional(readOnly=true)
+	@SuppressWarnings("unchecked")
 	public List<Conseiller> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = sessionFactory.openSession();
+		
+		return session.createQuery("FROM conseiller").list();
 	}
 	
 	@SuppressWarnings("unchecked")
 	public List<Client> getClientsOf(Conseiller c) {
 		Session session = sessionFactory.openSession();
-		Query query = session.createQuery("FROM Client c WHERE c.conseillerID = :cID");
+		Query query = session.createQuery("FROM client c WHERE c.conseiller = :cID");
 		query.setParameter("cID", c.getId());
 		return query.list();
 	}

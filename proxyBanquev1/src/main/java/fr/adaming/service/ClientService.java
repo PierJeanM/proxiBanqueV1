@@ -2,35 +2,35 @@ package fr.adaming.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import fr.adaming.dao.ClientDAO;
 import fr.adaming.model.Client;
 
+@Service
 public class ClientService implements IService<Client>{
 
+	@Autowired
 	private ClientDAO clientDAO;
 	
 	public ClientService() {
-		clientDAO = new ClientDAO();
-		
 	}
 	
 	public void add(Client client) {
 		clientDAO.add(client);
-		
 	}
 
 	public void update(Client t) {
-		// TODO Auto-generated method stub
-		
+		// TODO
 	}
 
 	public void delete(Client t) {
-		// TODO Auto-generated method stub
-		
+		// TODO
 	}
 
 	public Client getById(int id) {
-		// TODO Auto-generated method stub
+		// TODO
 		return null;
 	}
 
@@ -38,5 +38,4 @@ public class ClientService implements IService<Client>{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 }

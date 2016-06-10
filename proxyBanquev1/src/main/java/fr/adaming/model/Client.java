@@ -2,56 +2,54 @@ package fr.adaming.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity(name = "client")
-@Table(name="clients")
+@Table(name = "clients")
 public class Client {
 
 	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	@Column(name="id_client")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_client")
 	private int id;
 
-
-	@Column(name="nom")
+	@Column(name = "nom")
 	private String nom;
-	
-	@Column(name="prenom")
-	private String prenom;
-	
-	@Column(name="adresse")
-	private String adresse;
-	
-	@Column(name="codePostal")
-	private int codePostal;
-	
-	@Column(name="ville")
-	private String ville;
-	
-	@Column(name="telephone")
-	private int telephone;
 
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="id_conseiller")
+	@Column(name = "prenom")
+	private String prenom;
+
+	@Column(name = "adresse")
+	private String adresse;
+
+	@Column(name = "codePostal")
+	private String codePostal;
+
+	@Column(name = "ville")
+	private String ville;
+
+	@Column(name = "telephone")
+	private String telephone;
+
+	@ManyToOne
+	@JoinColumn(name = "conseiller_id", referencedColumnName = "id_conseiller")
 	private Conseiller conseiller;
-	
+
 	/**
 	 * ctor vide
 	 */
 	public Client() {
-		
+
 	}
 
 	/**
 	 * ctor chargé
+	 * 
 	 * @param id
 	 * @param nom
 	 * @param prenom
@@ -60,7 +58,7 @@ public class Client {
 	 * @param ville
 	 * @param telephone
 	 */
-	public Client(int id, String nom, String prenom, String adresse, int codePostal, String ville, int telephone) {
+	public Client(int id, String nom, String prenom, String adresse, String codePostal, String ville, String telephone) {
 		super();
 		this.id = id;
 		this.nom = nom;
@@ -73,6 +71,7 @@ public class Client {
 
 	/**
 	 * ctor chargé sans Id
+	 * 
 	 * @param nom
 	 * @param prenom
 	 * @param adresse
@@ -80,7 +79,7 @@ public class Client {
 	 * @param ville
 	 * @param telephone
 	 */
-	public Client(String nom, String prenom, String adresse, int codePostal, String ville, int telephone) {
+	public Client(String nom, String prenom, String adresse, String codePostal, String ville, String telephone) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
@@ -125,11 +124,11 @@ public class Client {
 		this.adresse = adresse;
 	}
 
-	public int getCodePostal() {
+	public String getCodePostal() {
 		return codePostal;
 	}
 
-	public void setCodePostal(int codePostal) {
+	public void setCodePostal(String codePostal) {
 		this.codePostal = codePostal;
 	}
 
@@ -141,14 +140,14 @@ public class Client {
 		this.ville = ville;
 	}
 
-	public int getTelephone() {
+	public String getTelephone() {
 		return telephone;
 	}
 
-	public void setTelephone(int telephone) {
+	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
-	
+
 	public Conseiller getConseiller() {
 		return conseiller;
 	}

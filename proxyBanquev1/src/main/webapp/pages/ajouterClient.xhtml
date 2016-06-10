@@ -13,8 +13,6 @@
 				<h:outputText value="Ajout Client" />
 			</h1>
 			<h:panelGrid columns="2">
-				<h:outputLabel value="Id:" for="id" />
-				<h:inputText id="id" value="#{clientMB.client.id}" title="Id" />
 
 				<h:outputLabel value="Nom:" for="nom" />
 				<h:inputText id="nom" value="#{clientMB.client.nom}" title="Nom" />
@@ -38,6 +36,8 @@
 				<h:outputLabel value="Telephone:" for="telephone" />
 				<h:inputText id="telephone" value="#{clientMB.client.telephone}"
 					title="Telephone" />
+				
+				
 
 			</h:panelGrid>
 			<h:commandButton actionListener="#{clientMB.addClient}" action="addedClient.xhtml" value="Ajouter" />
