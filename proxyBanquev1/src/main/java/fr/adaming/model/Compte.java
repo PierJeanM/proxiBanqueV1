@@ -27,23 +27,23 @@ public abstract class Compte {
 	 * CTOR SURCH AVEC ID
 	 * @param idCompte
 	 * @param solde
-	 * @param dateCréation
+	 * @param dateCrï¿½ation
 	 */
-	public Compte(int idCompte, double solde, Date dateCréation) {
+	public Compte(int idCompte, double solde, Date dateCreation) {
 		super();
 		this.solde = solde;
-		this.dateCreation = dateCréation;
+		this.dateCreation = dateCreation;
 	}
 
 	/**
 	 * CTOR SURCH SANS ID
 	 * @param solde
-	 * @param dateCréation
+	 * @param dateCrï¿½ation
 	 */
-	public Compte(double solde, Date dateCréation) {
+	public Compte(double solde, Date dateCreation) {
 		super();
 		this.solde = solde;
-		this.dateCreation = dateCréation;
+		this.dateCreation = dateCreation;
 	}
 
 	public double getSolde() {
@@ -54,12 +54,12 @@ public abstract class Compte {
 		this.solde = solde;
 	}
 
-	public Date getDateCréation() {
+	public Date getDateCreation() {
 		return dateCreation;
 	}
 
-	public void setDateCréation(Date dateCréation) {
-		this.dateCreation = dateCréation;
+	public void setDateCreation(Date dateCreation) {
+		this.dateCreation = dateCreation;
 	}
 
 }

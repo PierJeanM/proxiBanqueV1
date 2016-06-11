@@ -13,7 +13,7 @@
   <properties>
 		<javaee.version>6.0</javaee.version>
 		<spring.version>4.1.5.RELEASE</spring.version>
-		<hibernate.version>4.3.8.Final</hibernate.version>
+		<hibernate.version>4.3.5.Final</hibernate.version>
 		<mysql.driver.version>5.1.38</mysql.driver.version>
 		<slf4j.version>1.7.19</slf4j.version>
 		<servlet.version>2.5</servlet.version>
@@ -239,9 +239,9 @@
 	<build>
 		<finalName>proxyBanquev1</finalName>
 		<plugins>
-			<!--plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-compiler-plugin</artifactId> 
+			<plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-compiler-plugin</artifactId> 
 				<version>3.3</version> <configuration> <encoding>UTF-8</encoding> <source>1.8</source> 
-				<target>1.8</target> </configuration> </plugin -->
+				<target>1.8</target> </configuration> </plugin>
 		</plugins>
 	</build>
   

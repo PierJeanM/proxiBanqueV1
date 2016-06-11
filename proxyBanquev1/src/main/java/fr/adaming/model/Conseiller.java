@@ -18,7 +18,7 @@ public class Conseiller {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_conseiller")
-	private int id;
+	private Integer id;
 
 	@Column(name = "nom")
 	private String nom;
@@ -37,7 +37,7 @@ public class Conseiller {
 	}
 
 	/**
-	 * ctor chargé sans Id
+	 * ctor chargï¿½ sans Id
 	 * 
 	 * @param nom
 	 * @param prenom
@@ -51,7 +51,7 @@ public class Conseiller {
 	}
 
 	/**
-	 * ctor chargé
+	 * ctor chargï¿½
 	 * 
 	 * @param id
 	 * @param nom
@@ -76,11 +76,11 @@ public class Conseiller {
 		return nom;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

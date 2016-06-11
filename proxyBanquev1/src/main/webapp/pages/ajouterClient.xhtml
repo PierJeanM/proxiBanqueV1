@@ -2,47 +2,43 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
-<h:head>
-
-</h:head>
-<h:body>
+	<h:head>
+		 <title>Nouveau client</title>
+	</h:head>
+	<h:body>
 		<h:form>
-			<h1>
-				<h:outputText value="Ajout Client" />
-			</h1>
-			<h:panelGrid columns="2">
+			<p:panelGrid columns="2" styleClass="panelGridCenter">
+			
+				<f:facet name="header">
+					<h:outputText value="Ajout d'un client"/>
+				</f:facet>
 
-				<h:outputLabel value="Nom:" for="nom" />
-				<h:inputText id="nom" value="#{clientMB.client.nom}" title="Nom" />
+				<label>Nom :</label>
+				<p:inputText id="nom" value="#{clientMB.client.nom}" />
 
-				<h:outputLabel value="Prenom:" for="prenom" />
-				<h:inputText id="prenom" value="#{clientMB.client.prenom}"
-					title="Prenom" />
+				<label>Prenom :</label>
+				<p:inputText id="prenom" value="#{clientMB.client.prenom}"/>
 
-				<h:outputLabel value="Adresse:" for="adresse" />
-				<h:inputText id="adresse" value="#{clientMB.client.adresse}"
-					title="Adresse" />
+				<label>Adresse :</label>
+				<p:inputText id="adresse" value="#{clientMB.client.adresse}" />
 
-				<h:outputLabel value="Ville:" for="ville" />
-				<h:inputText id="ville" value="#{clientMB.client.ville}"
-					title="Ville" />
+				<label>Ville :</label>
+				<p:inputText id="ville" value="#{clientMB.client.ville}" />
 
-				<h:outputLabel value="Code Postal:" for="codePostal" />
-				<h:inputText id="codePostal" value="#{clientMB.client.codePostal}"
-					title="CodePostal" />
+				<label>Code Postal :</label>
+				<p:inputText id="codePostal" value="#{clientMB.client.codePostal}" />
 
-				<h:outputLabel value="Telephone:" for="telephone" />
-				<h:inputText id="telephone" value="#{clientMB.client.telephone}"
-					title="Telephone" />
+				<label>Telephone :</label>
+				<p:inputText id="telephone" value="#{clientMB.client.telephone}" />
 				
-				
-
-			</h:panelGrid>
+			</p:panelGrid>
 			<h:commandButton actionListener="#{clientMB.addClient}" action="addedClient.xhtml" value="Ajouter" />
 		</h:form>
 
-
-</h:body>
+		<a href="../homepage.xhtml">Retour accueil</a>
+	
+	</h:body>
 </html>

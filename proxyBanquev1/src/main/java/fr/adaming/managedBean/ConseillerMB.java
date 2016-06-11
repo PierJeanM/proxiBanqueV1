@@ -3,8 +3,10 @@ package fr.adaming.managedBean;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -23,9 +25,9 @@ public class ConseillerMB implements Serializable {
 
 	@Autowired
 	private IService<Conseiller> conseillerService;
-	
 	private Conseiller conseiller;
-
+	private List<Conseiller> listConseillers;
+	
 	public ConseillerMB() {
 		conseiller = new Conseiller();
 	}
@@ -50,5 +52,29 @@ public class ConseillerMB implements Serializable {
 
 	public void setConseiller(Conseiller conseiller) {
 		this.conseiller = conseiller;
+	}
+	
+	public List<Conseiller> getListConseillers() {
+		return listConseillers;
+	}
+
+	public void setListConseillers(List<Conseiller> listConseillers) {
+		this.listConseillers = listConseillers;
+	}
+
+	/**
+	 * Méthode appelée lors du login du conseiller (page Index.xhtml)
+	 */
+	public String login(){
+		listConseillers = conseillerService.getAll();
+
+		for (Conseiller c : listConseillers) {
+			if (c.getId().equals(conseiller.getId()) && c.getNom().equals(conseiller.getNom()) &&
+				c.getPrenom().equals(conseiller.getPrenom())) {
+				return "/pages/homepage.xhtml?faces-redirect=true";
+			}
+		}
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Un ou plusieurs champs sont incorrects"));
+		return null;
 	}
 }

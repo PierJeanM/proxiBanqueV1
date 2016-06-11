@@ -2,8 +2,12 @@ package fr.adaming.managedBean;
 import java.io.Serializable;
 
 
+
+
+import javax.el.ELContext;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -44,6 +48,10 @@ public class ClientMB implements Serializable{
 
 
 	public void addClient(){
+		// Recupere le managedbean conseiller pour que le nouveau client y soit associe
+		ELContext context = FacesContext.getCurrentInstance().getELContext();
+		ConseillerMB conseiller = (ConseillerMB) context.getELResolver().getValue(context, null, "conseillerMB");
+		client.setConseiller(conseiller.getConseiller());
 		clientService.add(client);
 	}
 
