@@ -2,7 +2,7 @@
 <faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee"
 	xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee      http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
-	
+
 	<application>
 		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
 		<resource-bundle>
@@ -16,4 +16,18 @@
 			<supported-locale>us</supported-locale>
 		</locale-config>
 	</application>
+
+	<navigation-rule>
+		<from-view-id>/pages/homepage.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>ajout</from-outcome>
+			<to-view-id>/pages/ajouterClient.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>details</from-outcome>
+			<to-view-id>/pages/detailsClient.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+
 </faces-config>

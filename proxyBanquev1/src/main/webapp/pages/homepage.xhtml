@@ -6,13 +6,13 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-
+	<title>PAGE ACCUEIL</title>
 </h:head>
 
 <h:body>
 		
 		
-		<p:layout style="min-width:400px;min-height:700px;">
+		<p:layout style="min-width:400px;min-height:200px;">
 		<p:layoutUnit position="west" resizable="true" size="100"
 			minSize="200" maxSize="300">
 			<p:panel header="Information conseiller">
@@ -58,11 +58,11 @@
 						<p:column headerText="Ville">
 							<h:outputText value="#{client.ville}" />
 						</p:column>
-						
+
 						<p:column headerText="Code Postale">
 							<h:outputText value="#{client.codePostal}" />
 						</p:column>
-						
+
 						<p:column headerText="Telephone">
 							<h:outputText value="#{client.telephone}" />
 						</p:column>
@@ -71,12 +71,21 @@
 				<p:stack
 					icon="http://st2.depositphotos.com/4494215/7068/v/110/depositphotos_70686145-White-home-icon.jpg"
 					expanded="true">
-					<p:menuitem value="Ajouter"
-						icon="http://st.depositphotos.com/1005920/2114/i/950/depositphotos_21142799-Add-contact-blue-square-glossy.jpg"
-						url="#" />
-					<p:menuitem value="Chameau"
-						icon="http://www.preparation-voyage.com/wp-content/uploads/2013/04/course-chameau.jpg"
-						url="#" />
+					
+					<p:menuitem value="Ajout Client"
+						icon="http://thumbs.dreamstime.com/t/puzzles-verts-et-loupe-57791341.jpg"
+						url="/pages/ajouterClient.xhtml" ajax="false">
+						<f:param name="ajouterClient" value="ajouterClient">
+						</f:param>
+						</p:menuitem>
+						
+
+					<p:menuitem value="Details Client"
+						icon="http://thumbs.dreamstime.com/t/puzzles-verts-et-loupe-57791341.jpg"
+						url="/pages/detailsClient.xhtml" ajax="false">
+						<f:param name="ajouterClient" value="pageAjoutClient">
+						</f:param>
+						</p:menuitem>
 				</p:stack>
 			</h:form>
 		</p:layoutUnit>
