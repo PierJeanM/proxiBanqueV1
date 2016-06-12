@@ -8,39 +8,11 @@
 	<h:head>
 		<title>Login Conseiller</title>
 	</h:head> 
-	<h:body> 
 	
-		
-		
 <h:body>
 
 	<p:layout style="min-width:400px;min-height:200px;">
-		<p:layoutUnit position="west" resizable="true" size="100" minSize="200"
-			maxSize="300">
-			<p:panel header="Information conseiller">
-				<p:panelGrid>
-
-					<p:column>
-						<p:row>
-							<h:outputLabel for="agence" value="Agence :"
-								style="font-weight:bold" />
-							<h:outputText value="#{clientMB.client.conseiller.agence}" />
-						</p:row>
-						<p:row>
-							<h:outputLabel for="nom" value="Nom :" style="font-weight:bold" />
-							<h:outputText value="#{clientMB.client.conseiller.nom}" />
-						</p:row>
-						<p:row>
-							<h:outputLabel for="prenom" value="Prenom :"
-								style="font-weight:bold" />
-							<h:outputText value="#{clientMB.client.conseiller.prenom}" />
-						</p:row>
-					</p:column>
-
-				</p:panelGrid>
-			</p:panel>
-		</p:layoutUnit>
-
+		
 		<p:layoutUnit position="center">
 			<h:form id="adminLoginForm">
 			<p:panel header="Connection conseiller">
@@ -64,11 +36,5 @@
 		</p:layoutUnit>
 	</p:layout>
 
-
-
-
-</h:body>
-	        
-	        
 	</h:body> 
 </html>

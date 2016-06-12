@@ -66,8 +66,9 @@ public class ConseillerMB implements Serializable {
 	 * Méthode appelée lors du login du conseiller (page Index.xhtml)
 	 */
 	public String login(){
+		System.out.println("==========>"+conseillerService);
 		listConseillers = conseillerService.getAll();
-
+		
 		for (Conseiller c : listConseillers) {
 			if (c.getId().equals(conseiller.getId())) {
 				return "/pages/homepage.xhtml?faces-redirect=true";
