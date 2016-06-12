@@ -80,12 +80,16 @@ public class ConseillerMB implements Serializable {
 	}
 	
 	
-	public boolean virement(){
+	public void virement(){
 		
 		Integer debiteur = Integer.parseInt(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("adminLoginForm:compteDebite"));
 		Integer crediteur = Integer.parseInt(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("adminLoginForm:compteCredite"));
 		double montant = Double.parseDouble(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("adminLoginForm:montant"));
 		
-		return compteService.virement(debiteur, crediteur, montant);
+		if (compteService.virement(debiteur, crediteur, montant)){
+			// mettre un message success
+		} else {
+			// mettre un message d'erreur
+		}
 	}
 }

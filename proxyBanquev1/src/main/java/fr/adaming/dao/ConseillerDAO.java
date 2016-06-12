@@ -48,9 +48,10 @@ public class ConseillerDAO{
 	}
 	
 	@SuppressWarnings("unchecked")
+	@Transactional(readOnly=true)
 	public List<Client> getClientsOf(Conseiller c) {
 		Session session = sessionFactory.openSession();
-		Query query = session.createQuery("FROM client c WHERE c.conseiller = :cID");
+		Query query = session.createQuery("FROM client c WHERE c.conseiller.id = :cID");
 		query.setParameter("cID", c.getId());
 		return query.list();
 	}
