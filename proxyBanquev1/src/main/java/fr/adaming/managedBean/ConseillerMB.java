@@ -69,8 +69,7 @@ public class ConseillerMB implements Serializable {
 		listConseillers = conseillerService.getAll();
 
 		for (Conseiller c : listConseillers) {
-			if (c.getId().equals(conseiller.getId()) && c.getNom().equals(conseiller.getNom()) &&
-				c.getPrenom().equals(conseiller.getPrenom())) {
+			if (c.getId().equals(conseiller.getId())) {
 				return "/pages/homepage.xhtml?faces-redirect=true";
 			}
 		}
