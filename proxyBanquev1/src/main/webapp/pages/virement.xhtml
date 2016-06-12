@@ -16,18 +16,23 @@
 
 					<h:panelGrid id="grid" columns="4" cellpadding="5">
 					
-						<h:outputLabel for="compteDebite" value="Numéro du compte à débiter :" style="font-weight:bold" />
-						<p:inputText id="compteDebite" value="#{}" required="true" label="Compte débité" />
-						<h:outputLabel for="compteCredite" value="Numéro du compte à créditer :" style="font-weight:bold" />
-						<p:inputText id="compteCredite" value="#{}" required="true" label="Compte crédité" />
+						<h:outputLabel value="Numéro du compte à débiter :" style="font-weight:bold" />
+						<p:inputText type="text" id="compteDebite" required="true" label="Compte débité" />
+						
+						<h:outputLabel value="Numéro du compte à créditer :" style="font-weight:bold" />
+						<p:inputText type="text" id="compteCredite" required="true" label="Compte crédité" />
+						
+						<h:outputLabel value="Montant :" style="font-weight:bold" />
+						<p:inputText type="number" id="montant" required="true" label="Montant" />
 						
 						<p:message for="compteDebite" />
 						<p:message for="compteCredite" />
+						<p:message for="montant" />
 						<h:outputText value="#{validationView.text}" />
 			
 					</h:panelGrid>
 
-					<p:commandButton  value="Effectuer le virement" action="#{}"/>
+					<p:commandButton  value="Effectuer le virement" action="#{conseillerMB.virement}"/>
 					<p:messages styleClass="errorMessage" autoUpdate="true"/>
 				</p:panel>
 			</h:form>

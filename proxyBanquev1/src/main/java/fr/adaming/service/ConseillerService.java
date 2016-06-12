@@ -36,7 +36,6 @@ public class ConseillerService {
 		return null;
 	}
 
-	@Override
 	public List<Conseiller> getAll() {
 		return conseillerDAO.getAll();
 	}
