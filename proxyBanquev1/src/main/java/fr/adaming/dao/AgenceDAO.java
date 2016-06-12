@@ -1,5 +1,10 @@
 package fr.adaming.dao;
 
-public class AgenceDAO {
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
+@Repository
+@Transactional
+public class AgenceDAO {
+	//TODO utile ?
 }

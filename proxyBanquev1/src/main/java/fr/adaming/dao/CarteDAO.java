@@ -7,10 +7,14 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.model.Carte;
 
-public class CarteDAO implements IDAO<Carte> {
+@Repository
+@Transactional
+public class CarteDAO{
 	
 	@Autowired // injection automatique
 	private SessionFactory sessionFactory;
@@ -25,7 +29,9 @@ public class CarteDAO implements IDAO<Carte> {
 		Session session = sessionFactory.openSession();
 		Transaction t  = session.beginTransaction();
 		session.save(c);
+		session.flush();
 		t.commit();
+		session.close();
 	}
 
 
@@ -39,17 +45,19 @@ public class CarteDAO implements IDAO<Carte> {
 		Session session = sessionFactory.openSession();
 		Transaction t = session.beginTransaction();
 		
-		Carte card = (Carte) session.load(Carte.class, c.getId());
+		Carte card = (Carte) session.load(Carte.class, c.getNumeroCarte());
 		
 		session.delete(card);
+		session.flush();
 		t.commit();
+		session.close();
 	}
 
 
-	public Carte getById(int id) {
+	public Carte getById(String numero) {
 		Session session = sessionFactory.openSession();
-		Query query = session.createQuery("FROM Carte c WHERE c.id = :carteID");
-		query.setParameter("carteID", id);
+		Query query = session.createQuery("FROM carte c WHERE c.numeroCarte = :carteNumero");
+		query.setParameter("carteNumero", numero);
 		
 		return (Carte) query.uniqueResult();
 	}
@@ -59,6 +67,6 @@ public class CarteDAO implements IDAO<Carte> {
 	public List<Carte> getAll() {
 		Session session = sessionFactory.openSession();
 		
-		return session.createQuery("FROM Carte").list();
+		return session.createQuery("FROM carte").list();
 	}
 }

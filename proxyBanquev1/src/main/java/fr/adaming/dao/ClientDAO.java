@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import fr.adaming.model.Client;
 
 /**
- * Implémentation DAO pour la classe Client
+ * Implementation DAO pour la classe Client
  * @author INTI-0232
  *
  */
@@ -36,7 +36,9 @@ public class ClientDAO{
 		Session session = sessionFactory.openSession();
 		Transaction t  = session.beginTransaction();
 		session.save(c);
+		session.flush();
 		t.commit();
+		session.close();
 	}
 
 	
@@ -64,7 +66,9 @@ public class ClientDAO{
 		query.setParameter("conseiller", c.getConseiller());
 		query.setParameter("ville", c.getVille());
 		query.executeUpdate();
+		session.flush();
 		t.commit();
+		session.close();
 	}
 
 	
@@ -76,7 +80,9 @@ public class ClientDAO{
 		Client clt = (Client) session.load(Client.class, c.getId());
 		
 		session.delete(clt);
+		session.flush();
 		t.commit();
+		session.close();
 	}
 
 	

@@ -1,5 +1,7 @@
 package fr.adaming.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity(name = "client")
@@ -39,16 +42,19 @@ public class Client {
 	@ManyToOne
 	@JoinColumn(name = "conseiller_id", referencedColumnName = "id_conseiller")
 	private Conseiller conseiller;
+	
+	@OneToMany(mappedBy = "titulaire")
+	private List<Compte> comptes;
+	
+	@OneToMany(mappedBy = "proprietaire")
+	private List<Carte> cartesBancaires;
 
-	/**
-	 * ctor vide
-	 */
+
 	public Client() {
-
 	}
 
 	/**
-	 * ctor chargé
+	 * ctor chargï¿½
 	 * 
 	 * @param id
 	 * @param nom
@@ -70,7 +76,7 @@ public class Client {
 	}
 
 	/**
-	 * ctor chargé sans Id
+	 * ctor chargï¿½ sans Id
 	 * 
 	 * @param nom
 	 * @param prenom
@@ -154,5 +160,21 @@ public class Client {
 
 	public void setConseiller(Conseiller conseiller) {
 		this.conseiller = conseiller;
+	}
+
+	public List<Compte> getComptes() {
+		return comptes;
+	}
+
+	public void setComptes(List<Compte> comptes) {
+		this.comptes = comptes;
+	}
+
+	public List<Carte> getCartesBancaires() {
+		return cartesBancaires;
+	}
+
+	public void setCartesBancaires(List<Carte> cartesBancaires) {
+		this.cartesBancaires = cartesBancaires;
 	}
 }
