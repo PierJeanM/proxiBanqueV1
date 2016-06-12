@@ -41,7 +41,7 @@
 
 		<dependency>
 			<groupId>org.primefaces.themes</groupId>
-			<artifactId>start</artifactId>
+			<artifactId>trontastic</artifactId>
 			<version>1.0.6</version>
 		</dependency>
 
