@@ -5,12 +5,12 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 
-	<h:body>
+<h:body>
 		PAGE ACCUEIL
 		
 		<p:layout style="min-width:400px;min-height:200px;">
-		<p:layoutUnit position="west" resizable="true" size="100" minSize="200"
-			maxSize="300">
+		<p:layoutUnit position="west" resizable="true" size="100"
+			minSize="200" maxSize="300">
 			<p:panel header="Information conseiller">
 				<p:panelGrid>
 
@@ -38,7 +38,31 @@
 		<p:layoutUnit position="center">
 			<h:form>
 				<p:panel header="Liste des clients">
-					
+					<p:dataTable var="client" value="#{conseillerMB.clientsOf}">
+						<p:column headerText="Identifiant">
+							<h:outputText value="#{client.id}" />
+						</p:column>
+
+						<p:column headerText="Nom">
+							<h:outputText value="#{client.nom}" />
+						</p:column>
+
+						<p:column headerText="Prenom">
+							<h:outputText value="#{client.prenom}" />
+						</p:column>
+
+						<p:column headerText="Ville">
+							<h:outputText value="#{client.ville}" />
+						</p:column>
+						
+						<p:column headerText="Code Postale">
+							<h:outputText value="#{client.codePostal}" />
+						</p:column>
+						
+						<p:column headerText="Telephone">
+							<h:outputText value="#{client.telephone}" />
+						</p:column>
+					</p:dataTable>
 				</p:panel>
 				<p:stack
 					icon="http://st2.depositphotos.com/4494215/7068/v/110/depositphotos_70686145-White-home-icon.jpg"
@@ -53,5 +77,5 @@
 			</h:form>
 		</p:layoutUnit>
 	</p:layout>
-	</h:body>
+</h:body>
 </html>
