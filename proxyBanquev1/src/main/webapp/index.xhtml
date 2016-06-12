@@ -1,40 +1,54 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui"> 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
-	<h:head>
-		<title>Login Conseiller</title>
-	</h:head> 
-	
+<h:head>
+	<title>Login Conseiller</title>
+</h:head>
+
 <h:body>
 
 	<p:layout style="min-width:400px;min-height:700px;">
-		
+		<p:layoutUnit position="north"
+			style="min-height:50px;max-height:175px">
+
+			<p:panel header="Application de Banque en Ligne">
+				
+				<h:form id="adminLogoutForm">
+				<h:graphicImage value="/images/logoProxyBanque.PNG"
+					style="max-height:90px" />
+					<p:commandButton value="Deconnexion"
+						action="#{conseillerMB.logout}" style="margin-left:1200px;" />
+				</h:form>
+			</p:panel>
+		</p:layoutUnit>
 		<p:layoutUnit position="center">
 			<h:form id="adminLoginForm">
-			<p:panel header="Connection conseiller">
+				<p:panel header="Connection conseiller"
+					style="margin-left:400px;margin-right:450px;margin-top:100px">
 					<p:messages autoUpdate="true" />
 
-					<h:panelGrid id="grid" columns="4" cellpadding="5">
-						<h:outputLabel for="identifiant" value="Identifiant :" style="font-weight:bold" />
-						<p:inputText id="identifiant" value="#{conseillerMB.conseiller.id}"
-							required="true" label="Identifiant" />
+					<h:panelGrid id="grid" columns="4" cellpadding="5"
+						style="margin: 0 auto;">
+						<h:outputLabel for="identifiant" value="Identifiant :"
+							style="font-weight:bold" />
+						<p:inputText id="identifiant"
+							value="#{conseillerMB.conseiller.id}" required="true"
+							label="Identifiant" />
 						<p:message for="identifiant" />
 						<h:outputText value="#{validationView.text}" />
-			
+
 					</h:panelGrid>
 
-					<p:commandButton  value="Login" action="#{conseillerMB.login}"/>
-					<p:messages styleClass="errorMessage" autoUpdate="true"/>
+					<p:commandButton value="Connexion" action="#{conseillerMB.login}" />
+					<p:messages styleClass="errorMessage" autoUpdate="true" />
 				</p:panel>
-
-			
-		</h:form>
+			</h:form>
 		</p:layoutUnit>
 	</p:layout>
 
-	</h:body> 
+</h:body>
 </html>
