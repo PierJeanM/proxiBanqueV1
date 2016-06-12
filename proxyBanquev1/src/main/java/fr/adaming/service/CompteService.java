@@ -9,32 +9,32 @@ import fr.adaming.dao.CompteDAO;
 import fr.adaming.model.Compte;
 
 @Service
-public class CompteService implements IService<Compte> {
+public class CompteService {
 	
 	@Autowired
 	private CompteDAO compteDAO;
 
-	@Override
+
 	public void add(Compte c) {
 		compteDAO.add(c);		
 	}
 
-	@Override
+
 	public void update(Compte c) {
 		compteDAO.updateSolde(c);
 	}
 
-	@Override
+
 	public void delete(Compte c) {
 		compteDAO.delete(c);
 	}
 
-	@Override
+
 	public Compte getById(int numeroCompte) {
 		return compteDAO.getById(numeroCompte);
 	}
 
-	@Override
+
 	public List<Compte> getAll() {
 		return compteDAO.getAll();
 	}

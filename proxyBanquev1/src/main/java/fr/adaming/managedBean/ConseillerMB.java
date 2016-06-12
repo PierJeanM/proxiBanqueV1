@@ -13,8 +13,8 @@ import org.springframework.stereotype.Component;
 
 import fr.adaming.model.Client;
 import fr.adaming.model.Conseiller;
+import fr.adaming.service.CompteService;
 import fr.adaming.service.ConseillerService;
-import fr.adaming.service.IService;
 
 @ManagedBean
 @SessionScoped
@@ -24,7 +24,9 @@ public class ConseillerMB implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Autowired
-	private IService<Conseiller> conseillerService;
+	private ConseillerService conseillerService;
+	@Autowired
+	private CompteService compteService;
 	private Conseiller conseiller;
 	private List<Conseiller> listConseillers;
 	
@@ -76,5 +78,11 @@ public class ConseillerMB implements Serializable {
 		}
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Un ou plusieurs champs sont incorrects"));
 		return null;
+	}
+	
+	
+	public boolean virement(){
+		///compteService.vi
+		return false;
 	}
 }
