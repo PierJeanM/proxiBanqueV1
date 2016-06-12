@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		<title>Virement entre comptes</title>
+	</h:head> 
+	
+	<h:body>
+		<p:layoutUnit position="center">
+			<h:form id="adminLoginForm">
+				<p:panel header="Virement entre comptes">
+
+					<h:panelGrid id="grid" columns="4" cellpadding="5">
+					
+						<h:outputLabel for="compteDebite" value="Numéro du compte à débiter :" style="font-weight:bold" />
+						<p:inputText id="compteDebite" value="#{}" required="true" label="Compte débité" />
+						<h:outputLabel for="compteCredite" value="Numéro du compte à créditer :" style="font-weight:bold" />
+						<p:inputText id="compteCredite" value="#{}" required="true" label="Compte crédité" />
+						
+						<p:message for="compteDebite" />
+						<p:message for="compteCredite" />
+						<h:outputText value="#{validationView.text}" />
+			
+					</h:panelGrid>
+
+					<p:commandButton  value="Effectuer le virement" action="#{}"/>
+					<p:messages styleClass="errorMessage" autoUpdate="true"/>
+				</p:panel>
+			</h:form>
+		</p:layoutUnit>
+	</h:body>
+	
+</html>
