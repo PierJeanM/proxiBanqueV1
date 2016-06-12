@@ -9,7 +9,7 @@ import fr.adaming.dao.ClientDAO;
 import fr.adaming.model.Client;
 
 @Service
-public class ClientService implements IService<Client>{
+public class ClientService {
 
 	@Autowired
 	private ClientDAO clientDAO;

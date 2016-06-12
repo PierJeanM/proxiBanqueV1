@@ -10,7 +10,7 @@ import fr.adaming.model.Client;
 import fr.adaming.model.Conseiller;
 
 @Service
-public class ConseillerService implements IService<Conseiller>{
+public class ConseillerService {
 	
 	@Autowired
 	private ConseillerDAO conseillerDAO;
