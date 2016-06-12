@@ -10,59 +10,64 @@
 	</h:head> 
 	<h:body> 
 	
-		<h:form id="adminLoginForm">
-			<p:panelGrid columns="2" styleClass="panelGridCenter">
-				<f:facet name="header">
-					<h:outputText value="Login Conseiller"/>
-				</f:facet>
-
-				<label>Identifiant</label>
-				<p:inputText id="idConseiller" value="#{conseillerMB.conseiller.id}"/>
-
-				<label>Nom</label>
-				<p:inputText id="nom" value="#{conseillerMB.conseiller.nom}"/>
-				
-				<label>Prénom</label>
-				<p:inputText id="prenom" value="#{conseillerMB.conseiller.prenom}"/>
-
-			</p:panelGrid>
-
-			<p:commandButton  value="LOGIN" action="#{conseillerMB.login}"/>
-			<p:messages styleClass="errorMessage" autoUpdate="true"/>
-		</h:form>
 		
-<!-- 		 <f:view> -->
-	
-	<!--             <h:form> -->
-	<!--                 <h1><h:outputText value="List"/></h1> -->
-	<!--                 <h:dataTable value="#{conseillerMB.getClientsOf()}" var="item"> -->
-	<!--                     <h:column> -->
-	<!--                         <f:facet name="header"> -->
-	<!--                             <h:outputText value="Id"/> -->
-	<!--                         </f:facet> -->
-	<!--                         <h:outputText value="#{conseillerMB.conseiller.id}"/> -->
-	<!--                     </h:column> -->
-	<!--                     <h:column> -->
-	<!--                         <f:facet name="header"> -->
-	<!--                             <h:outputText value="Nom"/> -->
-	<!--                         </f:facet> -->
-	<!--                         <h:outputText value="#{conseillerMB.conseiller.nom}"/> -->
-	<!--                     </h:column> -->
-	<!--                     <h:column> -->
-	<!--                         <f:facet name="header"> -->
-	<!--                             <h:outputText value="Prenom"/> -->
-	<!--                         </f:facet> -->
-	<!--                         <h:outputText value="#{conseillerMB.conseiller.prenom}"/> -->
-	<!--                     </h:column>              -->
-	               
-	<!--                 </h:dataTable>                -->
-	                         
-	<!--             </h:form> -->
-	            
-<!-- 	            <a href="pages/ajouterClient.xhtml">Ajouter Client</a> -->
-<!-- 	             <input type="submit" value="Connection" name="Homepage" /> -->
-	            
-<!-- 	        </f:view> -->
+		
+<h:body>
+
+	<p:layout style="min-width:400px;min-height:200px;">
+		<p:layoutUnit position="west" resizable="true" size="100" minSize="200"
+			maxSize="300">
+			<p:panel header="Information conseiller">
+				<p:panelGrid>
+
+					<p:column>
+						<p:row>
+							<h:outputLabel for="agence" value="Agence :"
+								style="font-weight:bold" />
+							<h:outputText value="#{clientMB.client.conseiller.agence}" />
+						</p:row>
+						<p:row>
+							<h:outputLabel for="nom" value="Nom :" style="font-weight:bold" />
+							<h:outputText value="#{clientMB.client.conseiller.nom}" />
+						</p:row>
+						<p:row>
+							<h:outputLabel for="prenom" value="Prenom :"
+								style="font-weight:bold" />
+							<h:outputText value="#{clientMB.client.conseiller.prenom}" />
+						</p:row>
+					</p:column>
+
+				</p:panelGrid>
+			</p:panel>
+		</p:layoutUnit>
+
+		<p:layoutUnit position="center">
+			<h:form id="adminLoginForm">
+			<p:panel header="Connection conseiller">
+					<p:messages autoUpdate="true" />
+
+					<h:panelGrid id="grid" columns="4" cellpadding="5">
+						<h:outputLabel for="identifiant" value="Identifiant :" style="font-weight:bold" />
+						<p:inputText id="identifiant" value="#{conseillerMB.conseiller.id}"
+							required="true" label="Identifiant" />
+						<p:message for="identifiant" />
+						<h:outputText value="#{validationView.text}" />
+			
+					</h:panelGrid>
+
+					<p:commandButton  value="Login" action="#{conseillerMB.login}"/>
+					<p:messages styleClass="errorMessage" autoUpdate="true"/>
+				</p:panel>
+
+			
+		</h:form>
+		</p:layoutUnit>
+	</p:layout>
+
+
+
+
+</h:body>
 	        
 	        
 	</h:body> 

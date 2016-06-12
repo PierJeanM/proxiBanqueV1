@@ -1,16 +1,24 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>proxyBanquev1</groupId>
-  <artifactId>proxyBanquev1</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
-  <name>proxyBanquev1</name>
-  
-  
-  
-  
-  
-  <properties>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>proxyBanquev1</groupId>
+	<artifactId>proxyBanquev1</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>proxyBanquev1</name>
+
+
+	<!-- repository theme primefaces -->
+	<repositories>
+		<repository>
+			<id>prime-repo</id>
+			<name>Prime Repo</name>
+			<url>http://repository.primefaces.org</url>
+		</repository>
+	</repositories>
+
+
+	<properties>
 		<javaee.version>6.0</javaee.version>
 		<spring.version>4.1.5.RELEASE</spring.version>
 		<hibernate.version>4.3.5.Final</hibernate.version>
@@ -29,6 +37,12 @@
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
 			<version>4.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>start</artifactId>
+			<version>1.0.6</version>
 		</dependency>
 
 		<!-- JSF -->
@@ -207,16 +221,16 @@
 			<artifactId>commons-pool</artifactId>
 			<version>1.2</version>
 		</dependency>
-		
-		
-		
-<!-- *****************ajoutées***************** -->
+
+
+
+		<!-- *****************ajoutées***************** -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
 			<version>4.1.5.RELEASE</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>javax.ws.rs</groupId>
 			<artifactId>javax.ws.rs-api</artifactId>
@@ -239,10 +253,17 @@
 	<build>
 		<finalName>proxyBanquev1</finalName>
 		<plugins>
-			<plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-compiler-plugin</artifactId> 
-				<version>3.3</version> <configuration> <encoding>UTF-8</encoding> <source>1.8</source> 
-				<target>1.8</target> </configuration> </plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
-  
+
 </project>

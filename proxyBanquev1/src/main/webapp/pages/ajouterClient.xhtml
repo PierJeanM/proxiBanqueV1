@@ -5,40 +5,107 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 
-	<h:head>
-		 <title>Nouveau client</title>
-	</h:head>
-	<h:body>
-		<h:form>
-			<p:panelGrid columns="2" styleClass="panelGridCenter">
-			
-				<f:facet name="header">
-					<h:outputText value="Ajout d'un client"/>
-				</f:facet>
+<h:head>
+	<title>Nouveau client</title>
+</h:head>
+<h:body>
 
-				<label>Nom :</label>
-				<p:inputText id="nom" value="#{clientMB.client.nom}" />
+	<p:layout style="min-width:400px;min-height:200px;">
+		<p:layoutUnit position="west" resizable="true" size="100" minSize="200"
+			maxSize="300">
+			<p:panel header="Information conseiller">
+				<p:panelGrid>
 
-				<label>Prenom :</label>
-				<p:inputText id="prenom" value="#{clientMB.client.prenom}"/>
+					<p:column>
+						<p:row>
+							<h:outputLabel for="agence" value="Agence :"
+								style="font-weight:bold" />
+							<h:outputText value="#{clientMB.client.conseiller.agence}" />
+						</p:row>
+						<p:row>
+							<h:outputLabel for="nom" value="Nom :" style="font-weight:bold" />
+							<h:outputText value="#{clientMB.client.conseiller.nom}" />
+						</p:row>
+						<p:row>
+							<h:outputLabel for="prenom" value="Prenom :"
+								style="font-weight:bold" />
+							<h:outputText value="#{clientMB.client.conseiller.prenom}" />
+						</p:row>
+					</p:column>
 
-				<label>Adresse :</label>
-				<p:inputText id="adresse" value="#{clientMB.client.adresse}" />
+				</p:panelGrid>
+			</p:panel>
+		</p:layoutUnit>
 
-				<label>Ville :</label>
-				<p:inputText id="ville" value="#{clientMB.client.ville}" />
+		<p:layoutUnit position="center">
+			<h:form>
+				<p:panel header="Formulaire ajout client">
+					<p:messages autoUpdate="true" />
 
-				<label>Code Postal :</label>
-				<p:inputText id="codePostal" value="#{clientMB.client.codePostal}" />
+					<h:panelGrid id="grid" columns="4" cellpadding="5">
+						<h:outputLabel for="nom" value="Nom :" style="font-weight:bold" />
+						<p:inputText id="nom" value="#{clientMB.client.nom}"
+							required="true" label="Nom" />
+						<p:message for="nom" />
+						<h:outputText value="#{validationView.text}" />
 
-				<label>Telephone :</label>
-				<p:inputText id="telephone" value="#{clientMB.client.telephone}" />
-				
-			</p:panelGrid>
-			<h:commandButton actionListener="#{clientMB.addClient}" action="addedClient.xhtml" value="Ajouter" />
-		</h:form>
+						<h:outputLabel for="prenom" value="Prenom :"
+							style="font-weight:bold" />
+						<p:inputText id="prenom" value="#{clientMB.client.prenom}"
+							label="Prenom" />
+						<p:message for="prenom" />
+						<h:outputText value="#{validationView.text}" />
 
-		<a href="../homepage.xhtml">Retour accueil</a>
-	
-	</h:body>
+						<h:outputLabel for="adresse" value="Adresse :"
+							style="font-weight:bold" />
+						<p:inputText id="adresse" value="#{clientMB.client.adresse}"
+							label="adresse" />
+						<p:message for="adresse" />
+						<h:outputText value="#{validationView.text}" />
+
+
+						<h:outputLabel for="codePostal" value="Code Postal :"
+							style="font-weight:bold" />
+						<p:inputText id="codePostal" value="#{clientMB.client.codePostal}"
+							label="codePostal" />
+						<p:message for="codePostal" />
+						<h:outputText value="#{validationView.text}" />
+
+						<h:outputLabel for="ville" value="Ville :"
+							style="font-weight:bold" />
+						<p:inputText id="ville" value="#{clientMB.client.ville}"
+							label="ville" />
+						<p:message for="ville" />
+						<h:outputText value="#{validationView.text}" />
+
+						<h:outputLabel for="telephone" value="Telephone :"
+							style="font-weight:bold" />
+						<p:inputText id="telephone" value="#{clientMB.client.telephone}"
+							label="telephone" />
+						<p:message for="telephone" />
+						<h:outputText value="#{validationView.text}" />
+
+					</h:panelGrid>
+
+					<p:commandButton action="#{clientMB.addClient}" value="Ajouter" update="grid" icon="ui-icon-check"
+						validateClient="true" style="margin-right:10px" />
+				</p:panel>
+				<p:stack
+					icon="http://st2.depositphotos.com/4494215/7068/v/110/depositphotos_70686145-White-home-icon.jpg"
+					expanded="true">
+					<p:menuitem value="Ajouter"
+						icon="http://st.depositphotos.com/1005920/2114/i/950/depositphotos_21142799-Add-contact-blue-square-glossy.jpg"
+						url="#" />
+					<p:menuitem value="Chameau"
+						icon="http://www.preparation-voyage.com/wp-content/uploads/2013/04/course-chameau.jpg"
+						url="#" />
+				</p:stack>
+			</h:form>
+		</p:layoutUnit>
+	</p:layout>
+
+
+
+
+</h:body>
 </html>
