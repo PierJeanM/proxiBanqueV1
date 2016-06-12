@@ -16,18 +16,22 @@
 
 					<h:panelGrid id="grid" columns="4" cellpadding="5">
 					
-						<h:outputLabel value="Numéro du compte à débiter :" style="font-weight:bold" />
+						<h:outputLabel value="N° du compte à débiter :" style="font-weight:bold" />
 						<p:inputText type="text" id="compteDebite" required="true" label="Compte débité" />
 						
-						<h:outputLabel value="Numéro du compte à créditer :" style="font-weight:bold" />
+						
+						<h:outputLabel value="N° du compte à créditer :" style="font-weight:bold" />
 						<p:inputText type="text" id="compteCredite" required="true" label="Compte crédité" />
+						
 						
 						<h:outputLabel value="Montant :" style="font-weight:bold" />
 						<p:inputText type="number" id="montant" required="true" label="Montant" />
 						
+						
 						<p:message for="compteDebite" />
 						<p:message for="compteCredite" />
 						<p:message for="montant" />
+						
 						<h:outputText value="#{validationView.text}" />
 			
 					</h:panelGrid>

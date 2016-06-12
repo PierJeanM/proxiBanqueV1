@@ -72,11 +72,22 @@ public class ConseillerMB implements Serializable {
 
 		for (Conseiller c : listConseillers) {
 			if (c.getId().equals(conseiller.getId())) {
+				setConseiller(c);
 				return "/pages/homepage.xhtml?faces-redirect=true";
 			}
 		}
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Un ou plusieurs champs sont incorrects"));
 		return null;
+	}
+	
+	
+	/** 
+	 * Logout du conseiller
+	 * @return 
+	 */
+	public String logout() {
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+		return "/index.xhtml?faces-redirect=true";
 	}
 	
 	
@@ -87,9 +98,10 @@ public class ConseillerMB implements Serializable {
 		double montant = Double.parseDouble(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("adminLoginForm:montant"));
 		
 		if (compteService.virement(debiteur, crediteur, montant)){
-			// mettre un message success
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Virement effectué avec succès"));
 		} else {
-			// mettre un message d'erreur
+			//TODO mettre un message d'erreur selon l'erreur
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Le virement n'a pas pu être effectué.", null));
 		}
 	}
 }

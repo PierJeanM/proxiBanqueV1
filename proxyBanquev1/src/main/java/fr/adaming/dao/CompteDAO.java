@@ -111,6 +111,9 @@ public class CompteDAO {
 		Compte c1 = getById(compteADebiter);
 		Compte c2 = getById(compteACrediter);
 		
+		if (c1 == null || c2 == null)
+			return false;
+		
 		// Si compte debiteur courant, verif qu'on ne depasse pas le decouvert
 		if (c1.getClass().getSimpleName().equals("CompteCourant")) {
 			if (c1.getSolde() - montant < ((CompteCourant) c1).getDecouvertAutoris()*-1) {
